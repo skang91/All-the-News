@@ -42,11 +42,13 @@ conn.once('open', function() {
 // GET request
 app.get("/", function(req, res) {
     db.Article.find({saved: false}, function(error, data) {
+        console.log('**********\n\n', data);
+        console.log('**********\n\n');
         var hbsObject = {
             article: data
         };
-        console.log("hbsOject.article". hbsObjectarticle);
-        console.log(hbsObject);
+        console.log("hbsOject.article", hbsObject);
+        // console.log(hbsObject);
         res.render("home", hbsObject);
     })
 })
@@ -76,7 +78,7 @@ app.get('/scrape', function(req, res) {
             // Create a new article using result object built from scraping
             db.Article.create(result)
                 .then(function(dbArticle) {
-                    console.log(dbArticle);
+                    // console.log(dbArticle);
                 })
                 .catch(function(err) {
                     console.log(err);
