@@ -4,9 +4,11 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var path = require('path');
 
+// Scraping tools
 var request = require('request');
 var cheerio = require('cheerio');
 
+// Note and Article models
 var db = require("./models");
 
 mongoose.Promise = Promise;
@@ -15,7 +17,7 @@ var PORT = process.env.PORT || 3000;
 
 var app = express();
 
-// Use morgan and body parser middleware
+//middleware
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -42,13 +44,10 @@ conn.once('open', function() {
 // GET request
 app.get("/", function(req, res) {
     db.Article.find({saved: false}, function(error, data) {
-        console.log('**********\n\n', data);
-        console.log('**********\n\n');
         var hbsObject = {
             article: data
         };
-        console.log("hbsOject.article", hbsObject);
-        // console.log(hbsObject);
+        console.log(hbsObject);
         res.render("home", hbsObject);
     })
 })
@@ -64,7 +63,7 @@ app.get("/saved", function(req, res) {
     });
 });
 
-// A GET route for scraping the echoJS website
+// GET route
 app.get('/scrape', function(req, res) {
     request('http://www.echojs.com', function(error, response, html) {
         var $ = cheerio.load(html);
@@ -75,21 +74,20 @@ app.get('/scrape', function(req, res) {
             result.title = $(this).children('a').text();
             result.link = $(this).children('a').attr('href');
 
-            // Create a new article using result object built from scraping
+            // Create a new article 
             db.Article.create(result)
                 .then(function(dbArticle) {
-                    // console.log(dbArticle);
+                    console.log(dbArticle);
                 })
                 .catch(function(err) {
                     console.log(err);
                 });
         });
-        // Send a message to the client
         res.send("Scrape Complete");
     });
 });
 
-// This will get the articles we scraped from the mongoDB
+// articles from the mongoDB
 app.get("/articles", function(req, res) {
     db.Article.find({})
     .then(function(dbArticle) {
@@ -100,7 +98,7 @@ app.get("/articles", function(req, res) {
     });
 });
 
-// Grab an article by it's ObjectId
+// article by ObjectId
 app.get('/articles/:id', function(req, res) {
     db.Article.findOne({ _id: req.params.id })
     .populate('note')
@@ -183,6 +181,6 @@ app.delete('/notes/delete/:note_id/:article_id', function(req, res) {
 });
 
 // Start the server
-app.listen(PORT, function () {
-  console.log("Server listening on: http://localhost:" + PORT);
-});
+app.listen(PORT, function() {
+    console.log(`App running on port ${PORT}!`);
+})
