@@ -1,18 +1,15 @@
-# mongo-scraper
-MongoDB Scraper with Mongoose JS
+# All the News That's FIt to Scrape
 
-# scrape-the-news
+This is a app that lets users view and leave comments on the on the latest news to use Mongoose and Cheerio to scrape news from another site.
 
-Uses Cheerio to scrape news articles from a site and allows the user to add notes and delete them. Uses Mongoose to store notes and articles.
+Scraped news articles from http://www.echojs.com
 
-## Demo
-
-*Mongo Scraper* is deployed to Heroku. Please check it out [here](https://safe-bayou-28606.herokuapp.com/)
+## Getting Started
+Click <a href="h">here</a> to start!
 
 ## Screen Shots
+![Screen shot]()
 
-![Screen shot](public/assets/images/screenshot.jpg)
-Scraped news articles from http://www.echojs.com
 
 ## Technologies used
 - Node.js
@@ -31,12 +28,5 @@ Scraped news articles from http://www.echojs.com
 - Node.js - Download the latest version of Node https://nodejs.org/en/
 
 ```
-
-## Built With
-
-
-* Node
-* Mongoose/MongoDB
-
 
 
