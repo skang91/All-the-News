@@ -23,14 +23,14 @@ body {
 }
 
 .jumbotron {
-    background-image: url("../images/top.jpg");
+    background-image: url("../images/top4.jpg");
     -webkit-background-size: cover; 
     -moz-background-size: cover;  
     -o-background-size: cover;      
     background-size: cover;     
-    color:black;
-    height:300px;
+    color:white;
     text-align: center;
+    height: 300px;
 }
 
 h1 {
