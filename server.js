@@ -9,7 +9,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 // Note and Article models
-var db = require("./models");
+var db = require("./models/index");
 
 mongoose.Promise = Promise;
 
