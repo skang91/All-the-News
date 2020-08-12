@@ -4,6 +4,7 @@
   "description": "This is a app that lets users view and leave comments on the on the latest news to use Mongoose and Cheerio to scrape news from another site.",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
   },
   "devDependencies": {},
