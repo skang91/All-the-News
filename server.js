@@ -8,8 +8,8 @@ var path = require('path');
 var request = require('request');
 var cheerio = require('cheerio');
 
-// Note and Article models
-var db = require("./models/index");
+// Requiring Note and Article models
+var db = require("./models");
 
 mongoose.Promise = Promise;
 
@@ -63,7 +63,7 @@ app.get("/saved", function(req, res) {
     });
 });
 
-// GET route
+// GET route for scraping the echoJS website
 app.get('/scrape', function(req, res) {
     request('http://www.echojs.com', function(error, response, html) {
         var $ = cheerio.load(html);
@@ -74,7 +74,7 @@ app.get('/scrape', function(req, res) {
             result.title = $(this).children('a').text();
             result.link = $(this).children('a').attr('href');
 
-            // Create a new article 
+            // Create a new article
             db.Article.create(result)
                 .then(function(dbArticle) {
                     console.log(dbArticle);
@@ -141,7 +141,7 @@ app.post('/articles/delete/:id', function(req, res) {
     }); 
 });
 
-// Create a new note
+// Create a note
 app.post("/notes/save/:id", function(req, res) {
     var newNote = new db.Note ({
         body: req.body.text,
@@ -182,5 +182,7 @@ app.delete('/notes/delete/:note_id/:article_id', function(req, res) {
 
 // Start the server
 app.listen(PORT, function() {
-    console.log(`App running on port ${PORT}!`);
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    PORT,
+    PORT);
 })
