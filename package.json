@@ -1,29 +1,24 @@
 {
-  "name": "mongo-scraper",
+  "name": "all-the-news",
   "version": "1.0.0",
-  "description": "Web app that lets users view and leave comments on the latest news.",
+  "description": "This is a app that lets users view and leave comments on the on the latest news to use Mongoose and Cheerio to scrape news from another site.",
   "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/perrycpf/mongo-scraper.git"
+    "url": "git+https://github.com/skang91/All-the-News.git"
   },
-  "author": "Perry Choy",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/perrycpf/mongo-scraper/issues"
+    "url": "https://github.com/skang91/All-the-News/issues"
   },
-  "homepage": "https://github.com/perrycpf/mongo-scraper#readme",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.0.0",
-    "mongoose": "^5.4.10",
-    "morgan": "^1.9.1",
-    "request": "^2.88.0"
-  }
+  "homepage": "https://github.com/skang91/All-the-News#readme"
 }
