@@ -5,7 +5,7 @@ This is a app that lets users view and leave comments on the on the latest news 
 Scraped news articles from http://www.echojs.com
 
 ## Getting Started
-Click <a href="h">here</a> to start!
+Click <a href="https://secret-inlet-90576.herokuapp.com/">here</a> to start!
 
 ## Screen Shots
 ![Screen shot]()
