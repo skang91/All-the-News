@@ -8,7 +8,7 @@ Scraped news articles from http://www.echojs.com
 Click <a href="https://secret-inlet-90576.herokuapp.com/">here</a> to start!
 
 ## Screen Shots
-![Screen shot]()
+![Screen shot](public/assets/images/screenshot.gif)
 
 
 ## Technologies used
